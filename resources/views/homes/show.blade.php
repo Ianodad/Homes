@@ -12,7 +12,14 @@
             <div>
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                        <h1>{{$id}}<h2>
+
+                        <h1 class="col-md-12">Home for{{$Home->id}}<h2>
+                            <div class="row col-md-12">
+                                <p>{{$Home->location}}</p>
+                                <p>{{$Home->no_rooms}}</p>
+                                <p>{{$Home->price}}</p>
+                                <p>{{$Home->types}}</p>
+                            </div>
                     </div>
                     <div class="row">
 

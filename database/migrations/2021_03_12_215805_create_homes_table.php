@@ -14,12 +14,20 @@ class CreateHomesTable extends Migration
     public function up()
     {
         Schema::create('homes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('title');
             $table->string('location');
-            $table->string('no_rooms');
+            $table->text('description');
+            $table->integer('no_rooms');
             $table->integer('price');
-            $table->string('types');
+            $table->json('materials');
+            $table->unsignedInteger('views')->default(0);
+            $table->integer('votes')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->string('type');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

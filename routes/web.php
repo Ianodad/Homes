@@ -18,10 +18,18 @@ Route::get('/', function () {
 });
 
 Route::get('/homes', [HomesController::class, 'index']);
-
-Route::get('/homes/{id}',[HomesController::class, 'show']) ;
-
+Route::get('/homes/create',[HomesController::class, 'create']);
+Route::post('/homes',[HomesController::class, 'store']);
+Route::get('/homes/{id}',[HomesController::class, 'show']);
 
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
