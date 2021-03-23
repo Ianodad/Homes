@@ -34,4 +34,14 @@ class Home extends Model
 
         return route("homes.show", $this->id);
     }
+
+    public function getStatusAttribute(){
+        if ($this-> price > 200){
+            // if ($this->current_bid_id){
+            //     return "current_bid";
+            // }
+            return "sold_out";
+        }
+        return "open_bid";
+    }
 }

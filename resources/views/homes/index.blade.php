@@ -1,38 +1,37 @@
 @extends('layouts.main')
 @section('content')
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+    <div class="container">
+        <div class="">
+            {{-- <div class="">
                 <p>Username</p>
                 @php
                     $name = 'ian';
                     echo $name;
                 @endphp
+            </div> --}}
+            <div class="">
             </div>
-            <div>
-                <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                    <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                        <h1>THE BEST HOMES<h2>
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="row header my-4">
+                        <div class="">
+                            <h1>THE BEST HOMES<h2>
+                        </div>
+                        <div class="ml-auto">
+                            <a href="{{ route('homes.create') }}" class="">Add Your House</a>
+                        </div>
                     </div>
-                    <div class="row">
-                        @foreach ($homes as $home)
-                            <div class="card max-w-6xl mx-auto sm:px-6 lg:px-8">
-                                <h3><a href="{{ $home->url }}">{{ $home->title }}</a></h3>
-                               <p>{{$home->location}}</p>
-                               <p>{{$home->no_rooms}}</p>
-                               <p>{{$home->price}}</p>
-                               <p>{{$home->types}}</p>
-                               <p> Agent <a href="{{ $home->url }}">{{ $home->user->name }}</a></p>
-                                <p>{{ $home->created_at }}</p>
-                            </div>
+                    <div class="row d-flex" id="homes_loop">
                         
-                        @endforeach
-                        
-                        {{ $homes->links() }}
+                        @include('homes.homes_loop')
+                        {{-- <div class="pagination col-md-12 mt-2" id="#pagination">
+                            {!!  $homes->links()  !!}
+                        </div> --}}
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
     </div>
 </div>
-@endsection 
+
+@endsection

@@ -7,6 +7,8 @@
 
     <title>Laravel</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -35,4 +37,27 @@
     </footer>
 </body>
 
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $(document).on('click', '.pagination a', function(event){
+            event.preventDefault();
+            var page = $(this).attr('href').split('page=')[1];
+            console.log(page)
+            fetch_more_homes(page)
+        });
+
+        function fetch_more_homes(page){
+            $.ajax({
+                type: 'GET',
+                url:'?page=' + page,
+                success: function(data){
+                    $('#homes_loop').html(data);
+                }
+            })
+        }
+    })
+
+</script>
 </html>
+

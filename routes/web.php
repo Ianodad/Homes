@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/homes', [HomesController::class, 'index']);
-Route::get('/homes/create',[HomesController::class, 'create']);
-Route::post('/homes',[HomesController::class, 'store']);
-Route::get('/homes/{id}',[HomesController::class, 'show']);
+Route::get('/homes', [HomesController::class, 'index'])->name('homes');
+Route::get('/homes/create',[HomesController::class, 'create'])->name('homes.create');
+Route::post('/homes',[HomesController::class, 'store'])->name('homes');
+Route::post('/homes/fetch_more_homes',[HomesController::class, 'fetch_more_homes'])->name('homes.fetch_more_homes');
+Route::get('/homes/{id}',[HomesController::class, 'show'])->name('homes');
 
 Auth::routes();
 

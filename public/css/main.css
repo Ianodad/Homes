@@ -377,3 +377,16 @@ video {
         color: rgba(203, 213, 224, var(--text-opacity));
     }
 }
+
+
+/* custom style sheet */
+.current_bid{
+    color:"red"    
+
+}
+.sold_out{
+    color:"green"
+}
+.open_bid{
+    color:"pink"
+}
