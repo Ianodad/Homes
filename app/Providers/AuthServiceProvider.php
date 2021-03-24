@@ -26,5 +26,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        \Gate::define('update-home', function($user, $home){
+            return $user->id == $home->user_id;
+        });
+
+        \Gate::define('delete-home', function($user, $home){
+            return $user->id == $home->user_id;
+        });
     }
 }

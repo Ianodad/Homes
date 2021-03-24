@@ -18,12 +18,16 @@ Route::get('/', function () {
 });
 
 Route::get('/homes', [HomesController::class, 'index'])->name('homes');
-Route::get('/homes/create',[HomesController::class, 'create'])->name('homes.create');
 Route::post('/homes',[HomesController::class, 'store'])->name('homes');
+Route::get('/homes/edit/{id}',[HomesController::class, 'edit'])->name('homes.edit');
+// Route::put('/homes/update/{id}' ,[HomesController::class, 'update'])->name('homes.update');
+Route::get('/homes/create',[HomesController::class, 'create'])->name('homes.create');
 Route::post('/homes/fetch_more_homes',[HomesController::class, 'fetch_more_homes'])->name('homes.fetch_more_homes');
-Route::get('/homes/{id}',[HomesController::class, 'show'])->name('homes');
+Route::get('/homes/{id}',[HomesController::class, 'show'])->name('homes.show');
+// Route::get('/homes/',[HomesController::class, 'destroy'])->name('homes.destroy');
 
 Auth::routes();
+Route::resource('homes',HomesController::class);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

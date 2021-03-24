@@ -4,11 +4,12 @@
         <div>
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center text-center pt-8 sm:justify-start sm:pt-0">
-                    <h1 class="header">ADD HOME</h1>
+                    <h1 class="header">EDIT HOME</h1>
                 </div>
                 <div class="row">
-                    <form action="/homes" method="POST">
-                        @include("homes._form", ['buttonText' =>"Create A Home"] )
+                    <form action="{{ route('homes.update', $home->id) }}" method="post">
+                        {{ method_field('PUT') }}
+                        @include("homes._form", ['buttonText' =>"Update Home"] )
                     </form>
                 </div>
             </div>

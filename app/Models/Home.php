@@ -13,8 +13,8 @@ class Home extends Model
      *
      * @var string
      */
-    protected $table = 'homes' ;
-    protected $fillable = ['title', 'description', 'no_rooms', 'price', 'type', 'materials'];
+    // protected $table = 'homes' ;
+    protected $fillable = ['user_id', 'title', 'location', 'description',  'no_rooms', 'price', 'type', 'materials'];
     protected $casts =[
         'materials' => 'array',
     ];

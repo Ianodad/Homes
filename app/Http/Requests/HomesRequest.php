@@ -25,9 +25,12 @@ class HomesRequest extends FormRequest
     {
         return [
             //
-            'title' =>'required|255',
-            'location' =>'required|255',
-            'description' =>'required|255'
+            'title' =>'required',
+            'location' =>'required|min:2|max:250',
+            'description' => 'required',
+            // 'type'=> 'required',
+            'price'=> 'required',
+            'no_rooms'=>'required|min:1',
 
         ];
     }
