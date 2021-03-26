@@ -10,6 +10,9 @@ use App\Models\Home;
 use App\Http\Requests\HomesRequest;
 class HomesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     //
     public function index(){
         // $homes = Homes::all();
@@ -44,50 +47,62 @@ class HomesController extends Controller
         // error_log(request('price'));
         // error_log(request('materials'));
         // $validated = $request->validate();
-        //     Home::create($request->all());
-        // $home= new Home();
-        // dd($request('title'));
-        // $request->user()->homes()->create($request->all());
-        // $home->title = $request(['title']);
-        // $home->location= $request('location');
-        // $home->description = $request('description');
-        // $home->no_rooms= $request('no_rooms');
-        // $home->type= $request('type');
-        // $home->price= $request('price');
-        // $home->materials=( $request('materials'));
-        // `title`, `description`, `type`, `no_rooms`, `price`, `materials`
-        // Home::create($request->all());
-        // // error_log($home);
 
-        dd(auth()->login($user, true));
-        // $home = new Home();
-        // $home = $home->user()->create($request->all());
-        // $home->save();
+
+        // dd(auth());
+        // $home = Home::create([
+        //     "title" => request('title'),
+        //     "location" => request('location'),
+        //     "description" => request('description'),
+        //     "no_rooms" => request('no_rooms'),
+        //     "type" => request('type'),
+        //     "price" => request('price'),
+        //     "materials" => request('materials'),
+        //     "user_id" => auth()->user()->id
+        // ]);
+
+        $request->user()
+        ->home()
+        ->create($request->only('title', 'location', 'description', 'no_rooms', 'type', 'price', 'materials'));
+        
 
         return redirect('/')->with('message', 'Thanks for your submission');
     }
 
     public function edit(Home $home){
 
+        // authorization using gate
         if (\Gate::denies('update-home', $home)){
             abort(403, "Access denied");
             
         }
         
+        // $this->authorize('update', $home);
         // $home = Home::findOrFail($id);            
-        return view("homes.edit", compact($home));
+        return view("homes.edit", compact('home'));
         // dd($id);
         
     }
     
     public function update(HomesRequest $request, Home $home){
         
+        // authorization using update
+        if (\Gate::denies('update-home', $home)){
+            abort(403, "Access denied");
+            
+        }
+        // $this->authorize('update', $home);
         $home->update($request->all());
         return redirect('/homes')->with('Success', "Your home has been updated");
     }
     
     public function destroy(Home $home){
-        
+        // authorization using gate
+        if (\Gate::denies('delete-home', $home)){
+            abort(403, "Access denied");
+            
+        }
+        // $this->authorize('delete', $home);
         $home->delete();
         
      return redirect('/homes')->with('Success', "Your home has been deleted");

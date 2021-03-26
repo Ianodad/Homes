@@ -26,6 +26,7 @@ class CreateHomesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('type');
             $table->timestamps();
+            $table->integer('bid_count');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

@@ -14,7 +14,7 @@ class Home extends Model
      * @var string
      */
     // protected $table = 'homes' ;
-    protected $fillable = ['user_id', 'title', 'location', 'description',  'no_rooms', 'price', 'type', 'materials'];
+    protected $fillable = ['user_id', 'title', 'location', 'description',  'no_rooms', 'price', 'type', 'materials', 'bid_count'];
     protected $casts =[
         'materials' => 'array',
     ];
@@ -44,4 +44,8 @@ class Home extends Model
         }
         return "open_bid";
     }
+
+    public function bid(){
+        return $this->hasMany(Bid::class);
+    } 
 }

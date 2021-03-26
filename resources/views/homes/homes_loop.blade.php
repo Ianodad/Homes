@@ -10,17 +10,23 @@
                 <p>Type: {{ $home->type }}</p>
                 <p> Agent: <a href="{{ $home->url }}">{{ $home->user->name }}</a></p>
                 <p> Date Posted: {{ $home->created_at }}</p>
+                @if (Auth::user()->can('update-home', $home))
                 <div class="ml-auto">
                     <a class="btn btn-outline-info" href="{{ route('homes.edit', $home->id) }}">Edit</a>
                 </div>
+                @endif
+                @if (Auth::user()->can('update-home', $home))
                 <div class="mr-auto">
                     <a class="btn btn-outline-info" href="{{ route('homes.show', $home->id) }}">View</a>
                 </div>
+                @endif
+                @if (Auth::user()->can('delete-home', $home))
                 <form action="{{ route('homes.destroy', $home->id) }}" method="POST">   
                     @csrf
                     @method('DELETE')      
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
+                @endif
             </div> 
         </div>
 

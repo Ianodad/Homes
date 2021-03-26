@@ -15,7 +15,7 @@ class HomesSeeder extends Seeder
     public function run()
     {
         //      
-        Home::factory()->count(7)->create();
+        Home::factory()->count(35)->create();
         // $user = User::factory()->count(3)->create();
         
         // $home = Home::factory()
