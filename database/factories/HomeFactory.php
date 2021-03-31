@@ -27,12 +27,13 @@ class HomeFactory extends Factory
         return [
             //
             'title' => $this->faker->text(30),
+            // 'img_src' => $this->faker->imageUrl($width = 200, $height = 200),
             'user_id' => User::count() >= 10 ? User::inRandomOrder()->first()->id: User::factory(),
             'location' => $this->faker->randomElement(['Karen', 'Kileleshwa', 'Kitisuru', 'Langata', 'Runda', 'Lavington', 'Muthaiga']),
             'description' =>rtrim($this->faker->sentence(rand(3,6)), "."),
             'no_rooms' => $this->faker->numberBetween(1,7),
             'type'=> $this->faker->randomElement(['Mansion', 'Town House', 'Condo', 'Bungalow', 'Apartment', 'Tiny House' ]),
-            'bid_count'=>rand(0,7),
+            // 'bid_count'=>rand(0,7),
             'materials' => $this->faker->randomElement(['Wooden Floor', 'Solar Power', 'Pool', 'Jacuzzi', 'Lift', 'Tiles' ]),
             'price'=> $this->faker->numberBetween(1000000,100000000),
         ];

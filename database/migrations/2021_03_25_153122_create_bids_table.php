@@ -25,6 +25,9 @@ class CreateBidsTable extends Migration
             $table->integer('minimum_increment_bid');
             $table->integer('winning bid');
             $table->integer('total_bids');
+
+            // $table->foreign('home_id')->references('id')->on('homes');
+            // $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -15,11 +15,11 @@
                     <a class="btn btn-outline-info" href="{{ route('homes.edit', $home->id) }}">Edit</a>
                 </div>
                 @endif
-                @if (Auth::user()->can('update-home', $home))
+                {{-- @if (Auth::user()->can('update-home', $home)) --}}
                 <div class="mr-auto">
                     <a class="btn btn-outline-info" href="{{ route('homes.show', $home->id) }}">View</a>
                 </div>
-                @endif
+                {{-- @endif --}}
                 @if (Auth::user()->can('delete-home', $home))
                 <form action="{{ route('homes.destroy', $home->id) }}" method="POST">   
                     @csrf
@@ -29,8 +29,8 @@
                 @endif
             </div> 
         </div>
-
-    @endforeach
+        
+        @endforeach
 
     <div class="pagination col-md-12 mt-2" id="#pagination">
         {!! $homes->links() !!}

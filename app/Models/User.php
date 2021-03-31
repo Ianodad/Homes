@@ -26,6 +26,7 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $appends = ['url', 'avatar'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -52,5 +53,13 @@ class User extends Authenticatable
 
     public function bid(){
         return $this->hasMany(Bid::class);
+    }
+
+    public function getAvatarAttribute(){
+        $email = $this->email;
+        $size = 40;
+
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
+ 
     }
 }

@@ -18,7 +18,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
 
 
@@ -31,13 +32,16 @@
 </head>
 
 <body class="antialiased">
-    @yield('content')
-    <footer>
-        Copyright 2020 Grid Project
-    </footer>
+    <div id="app">
+        @yield('content')
+        <footer>
+            Copyright 2020 Grid Project
+        </footer>
+    </div>
 </body>
 
 <script type="text/javascript">
+
 
     $(document).ready(function(){
         $(document).on('click', '.pagination a', function(event){

@@ -29,6 +29,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset(mix('css/app.css')) }}"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -96,8 +97,10 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main>
+            <div class="container-fluid">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>

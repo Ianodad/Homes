@@ -19,7 +19,7 @@ class HomesController extends Controller
         // $homes = Homes::orderBy('no_rooms')->get();
 
         // \DB::enableQueryLog();
-        $homes = Home::with('user')->latest()->paginate(4);
+        $homes = Home::with('user')->latest()->paginate(8);
     
         // for debugging purpose
         // view('homes.index', ['homes' => $homes])->render();

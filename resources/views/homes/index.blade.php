@@ -19,11 +19,13 @@
                         </div>
                         <div class="ml-auto">
                             <a href="{{ route('homes.create') }}" class="">Add Your House</a>
+                            <user-info></user-info>
                         </div>
                     </div>
                     <div class="row d-flex" id="homes_loop">
                         
                         @include('homes.homes_loop')
+
                         {{-- <div class="pagination col-md-12 mt-2" id="#pagination">
                             {!!  $homes->links()  !!}
                         </div> --}}
