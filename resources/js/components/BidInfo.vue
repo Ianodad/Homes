@@ -1,13 +1,13 @@
 <template>
     <div>
-        <p>Bid Info</p>
+        <p>Hello This is from Vue</p>
     </div>
 </template>
 
 <script>
 export default {
         mounted() {
-            console.log('Component bid mounted.')
+            console.log('Component mounted.')
         }
     }
 </script>

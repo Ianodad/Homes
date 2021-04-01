@@ -39,6 +39,7 @@
                             'bids'=>$Home->bid
                         ])
                         @foreach ($Home->bid as $bi)
+                            <bid-info></bid-info>
                             {{ $bi->current_bid }}
                             <span>Bid {{ $bi->created_at }}</span>
                             <div class="media">

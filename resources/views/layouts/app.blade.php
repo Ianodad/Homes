@@ -22,13 +22,13 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <!-- Scripts -->
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}} 
     
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <script src="{{ asset(mix('css/app.css')) }}"></script>
 
     <!-- Styles -->
@@ -105,7 +105,6 @@
     </div>
 </body>
 <script type="text/javascript">
-
     $(document).ready(function(){
         $(document).on('click', '.pagination a', function(event){
             event.preventDefault();

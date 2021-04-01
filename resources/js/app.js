@@ -6,7 +6,8 @@
 require('./bootstrap');
 // require('./fontawesome');
 import { createApp } from 'vue';
-import UserInfo from './components/UserInfo.vue'
+import UserInfo from './components/UserInfo.vue';
+import Bidinfo from './components/BidInfo.vue';
 
 
 // window.Vue = require('vue').default;
@@ -31,7 +32,8 @@ import UserInfo from './components/UserInfo.vue'
  */
  createApp({
      components:{
-         UserInfo
+         UserInfo,
+         BidInfo
      }
  }).mount('#app')
 
