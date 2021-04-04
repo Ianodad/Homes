@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Home extends Model
 {
@@ -15,6 +16,9 @@ class Home extends Model
      */
     // protected $table = 'homes' ;
     protected $fillable = ['user_id', 'location', 'description',  'no_rooms', 'price', 'type', 'materials'];
+
+    protected $appends = ['created_date'];
+
     protected $casts =[
         'materials' => 'array',
     ];
@@ -26,11 +30,11 @@ class Home extends Model
     // $this->attributes['title'] = $value;
     // $this->attributes['slug'] = str_slug($value);
     
-    public function getCreatedUrlAttribute(){
-        return $this->created_at->diffForHumans();
+    public function getCreatedDateAttribute(){
+        return Carbon::parse($this->created_at)->diffForHumans();
     }
     
-    public function getUrlAttributes(){
+    public function getUrlAttribute(){
 
         return route("homes.show", $this->id);
     }

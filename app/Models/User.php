@@ -55,6 +55,12 @@ class User extends Authenticatable
         return $this->hasMany(Bid::class);
     }
 
+    public function getUrlAttribute(){
+
+        return '#';
+    }
+    
+
     public function getAvatarAttribute(){
         $email = $this->email;
         $size = 40;

@@ -34,19 +34,20 @@
                     </div>
                     <div class="tab-pane fade" id="nav-bids" role="tabpanel" aria-labelledby="nav-bids-tab">
                         {{-- <i title="fas fa-caret-up"></i> --}}
-                        <i class="far fa-user"></i>
+                        {{-- <i class="far fa-user"></i>
                         @include('bids._index',[
                             'bids'=>$Home->bid
-                        ])
+                        ]) --}}
                         @foreach ($Home->bid as $bi)
-                            {{ $bi->current_bid }}
+                        <bid-detail-view :bid="{{ $bi }}"></bid-detail-view>
+                            {{-- {{ $bi->current_bid }}
                             <span>Bid {{ $bi->created_at }}</span>
                             <div class="media">
                                 <img src="{{ $bi->user->avatar }}">
                             </div>
                             <div class="media-body">
                                 <a href="{{ $bi->user->url }}">{{ $bi->user->name }}</a>
-                            </div>
+                            </div> --}}
                         @endforeach
                     </div>
                 </div>

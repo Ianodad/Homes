@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 use \App\Models\Home;
 use \App\Models\User;
@@ -20,6 +21,8 @@ class Bid extends Model
     // protected $table = 'homes' ;
     protected $fillable = ['user_id', 'home_id', 'starting_bid_price', 'current_bid',  'count_down_timer', 'current_bid_time', 'minimum_increment_bid', 'winning bid', 'total_bids'];
 
+    protected $appends = ['created_date'];
+    
     public function home(){
         return $this->belongsTo(Home::class);
     }
@@ -43,7 +46,7 @@ class Bid extends Model
 
     }
     
-    public function getCreatedUrlAttribute(){
-        return $this->created_at->diffForHumans();
+    public function getCreatedDateAttribute(){
+        return Carbon::parse($this->created_at)->diffForHumans();
     }
 }

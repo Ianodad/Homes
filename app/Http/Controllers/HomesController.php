@@ -29,7 +29,7 @@ class HomesController extends Controller
     }
 
     public function show($id){
-        $Home = Home::find($id);
+        $Home = Home::with('bid.user')->find($id);
         // dd($Home);
         return view('homes.show', ['Home' => $Home]);
     }
