@@ -6,8 +6,10 @@
 require('./bootstrap');
 // require('./fontawesome');
 import { createApp } from 'vue';
-import UserInfo from './components/UserInfo.vue'
-import BidDetailView from './components/BidDetailView.vue'
+import UserInfo from './components/UserInfo.vue';
+import BidDetailView from './components/BidDetailView.vue';
+import NavbarView from './components/NavbarView.vue';
+import HomeLoopView from './components/HomeLoopView.vue';
 
 
 // window.Vue = require('vue').default;
@@ -34,6 +36,8 @@ import BidDetailView from './components/BidDetailView.vue'
      components:{
          UserInfo,
          BidDetailView,
+         NavbarView,
+         HomeLoopView,
      }
  }).mount('#app')
 

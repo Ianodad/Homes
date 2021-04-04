@@ -6,12 +6,10 @@
 
 <title>{{ config('app.name', 'Laravel') }}</title>
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
 
 <!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<link rel="dns-prefetch" href="//fonts.gstatic.com"/>
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"/>
 <title>Laravel</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,16 +18,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
 
 <!-- Styles -->
-<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<script src="{{ asset(mix('css/app.css')) }}"></script>
+<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+{{-- <script src="{{ asset(mix('css/app.css')) }}"></script> --}}
 
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
 <style>
     body {

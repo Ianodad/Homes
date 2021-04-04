@@ -5,7 +5,10 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.navbar')
+        <div class="container-fluid">
+            @include('layouts.navbar')
+        </div>
+
         <main>
             <div class="container-fluid">
                 @yield('content')
@@ -13,6 +16,9 @@
         </main>
     </div>
 </body>
+{{-- <script src="{{ mix('js/app.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
 <script type="text/javascript">
 
     $(document).ready(function(){

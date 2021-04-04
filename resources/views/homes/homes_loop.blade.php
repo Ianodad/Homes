@@ -1,9 +1,9 @@
-
-    @foreach ($homes as $home)
-        <div class="card mx-2 my-2" style="width:300px">
-            <div class="card-body">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="card-img-top" alt="..." />
-                <h3><a href="{{ $home->url }}">{{ $home->title }}</a></h3>
+ @foreach ($homes as $home)
+<home-loop-view  :home="{{ $home }}" style="width:900px" inline-template>
+<div class="card mx-2 my-2" style="width:300px">
+    <div class="card-body">
+        <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="card-img-top" alt="..." />
+        <h3><a href="{{ $home->url }}">{{ $home->title }}</a></h3>
                 <p>Location: {{ $home->location }}</p>
                 <p>No Rooms: {{ $home->no_rooms }}</p>
                 <p class={{ $home->status }}>Price {{ $home->price }}</p>
@@ -31,9 +31,10 @@
         </div>
         
         @endforeach
-
-    <div class="pagination col-md-12 mt-2" id="#pagination">
-        {!! $homes->links() !!}
-    </div>
-
+</homes-loop-view>
+        
+        <div class="pagination col-md-12 mt-2" id="#pagination">
+            {!! $homes->links() !!}
+        </div>
+        
 

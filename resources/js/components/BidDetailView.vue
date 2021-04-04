@@ -24,7 +24,7 @@ export default {
         };
     },
     mounted() {
-        console.log(this.bid);
+        // console.log(this.bid);
     },
 };
 </script>
