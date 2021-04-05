@@ -15,7 +15,7 @@ class Home extends Model
      * @var string
      */
     // protected $table = 'homes' ;
-    protected $fillable = ['user_id', 'location', 'description',  'no_rooms', 'price', 'type', 'materials'];
+    protected $fillable = ['user_id', 'location', 'description',  'no_rooms', 'price', 'type', 'materials', 'bid_count'];
 
     protected $appends = ['created_date'];
 

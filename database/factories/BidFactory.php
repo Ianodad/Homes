@@ -29,16 +29,24 @@ class BidFactory extends Factory
     public function definition()
     {
         $date = Carbon::create(2020, 5, 28, 0, 0, 0);
+        $user_id = User::pluck('id')->random();
+        $home_id = Home::pluck('id')->random();
+        // error_log($home_id);
+        $Home = Home::find($home_id);
+        // error_log($Home);
+        $starting_bid_price=$Home->price;
+        // $current_bid = $starting_bid_price + rand() 
+
         return [
             //
-            'user_id' => User::pluck('id')->random(),
-            'home_id' => Home::pluck('id')->random(),
-            'starting_bid_price' => rand(1,5),
-            'current_bid' => rand(0,7),
+            'user_id' => $user_id,
+            'home_id' => $home_id,
+            'starting_bid_price' => $starting_bid_price,
+            'current_bid' => $starting_bid_price + rand(0, 100000),
             'count_down_timer' => $this->faker->dateTimeThisMonth($max = 'now', $timezone = null),
             'current_bid_time' => $this->faker->dateTimeThisMonth($max = 'now', $timezone = null),
-            'minimum_increment_bid' => rand(0,10000000),
-            'winning bid' => rand(0,10000000),
+            'minimum_increment_bid' => 1000,
+            // 'winning bid' => rand(0,0),
             'total_bids' => rand(0,9),
         ];
     }

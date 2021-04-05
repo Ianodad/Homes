@@ -23,7 +23,7 @@ class CreateBidsTable extends Migration
             $table->timestamp('count_down_timer');
             $table->timestamp('current_bid_time');
             $table->integer('minimum_increment_bid');
-            $table->integer('winning bid');
+            $table->integer('winning_bid')->default(0);
             $table->integer('total_bids');
 
             // $table->foreign('home_id')->references('id')->on('homes');

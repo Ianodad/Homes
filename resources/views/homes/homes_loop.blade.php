@@ -1,6 +1,9 @@
  @foreach ($homes as $home)
-<home-loop-view  :home="{{ $home }}" style="width:900px" inline-template>
-<div class="card mx-2 my-2" style="width:300px">
+ {{-- @php
+     dd($home)
+ @endphp --}}
+{{-- <home-loop-view class="col-md-4"  :home="{{ $home }}"  inline-template> --}}
+<div class="card mx-2 my-2" style="max-width:300px">
     <div class="card-body">
         <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="card-img-top" alt="..." />
         <h3><a href="{{ $home->url }}">{{ $home->title }}</a></h3>
@@ -9,7 +12,8 @@
                 <p class={{ $home->status }}>Price {{ $home->price }}</p>
                 <p>Type: {{ $home->type }}</p>
                 <p> Agent: <a href="{{ $home->url }}">{{ $home->user->name }}</a></p>
-                <p> Date Posted: {{ $home->created_at }}</p>
+                <p> Date Posted: {{ $home->created_date }}</p>
+                <p> Bids: {{ $home->bid_count  }}
                 @if (Auth::user()->can('update-home', $home))
                 <div class="ml-auto">
                     <a class="btn btn-outline-info" href="{{ route('homes.edit', $home->id) }}">Edit</a>
@@ -29,9 +33,8 @@
                 @endif
             </div> 
         </div>
-        
+{{-- </homes-loop-view> --}}
         @endforeach
-</homes-loop-view>
         
         <div class="pagination col-md-12 mt-2" id="#pagination">
             {!! $homes->links() !!}

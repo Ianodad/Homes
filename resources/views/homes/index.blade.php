@@ -22,7 +22,7 @@
                             <user-info></user-info>
                         </div>
                     </div>
-                    <div class="row d-flex" id="homes_loop">
+                    <div class="d-flex row" id="homes_loop">
                         
                         @include('homes.homes_loop')
 

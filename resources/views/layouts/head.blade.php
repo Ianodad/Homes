@@ -18,11 +18,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+<script src="{{ mix('js/app.js') }}"></script>
+
 {{-- <script src="{{ asset(mix('css/app.css')) }}"></script> --}}
 
 <!-- Styles -->

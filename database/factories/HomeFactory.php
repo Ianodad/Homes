@@ -26,7 +26,7 @@ class HomeFactory extends Factory
     {
         return [
             //
-            'title' => $this->faker->text(30),
+            'title' => $this->faker->word(),
             // 'img_src' => $this->faker->imageUrl($width = 200, $height = 200),
             'user_id' => User::count() >= 10 ? User::inRandomOrder()->first()->id: User::factory(),
             'location' => $this->faker->randomElement(['Karen', 'Kileleshwa', 'Kitisuru', 'Langata', 'Runda', 'Lavington', 'Muthaiga']),
