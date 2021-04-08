@@ -1,6 +1,6 @@
  @foreach ($homes as $home)
  {{-- @php
-     dd($home)
+     dd($home->bid->first()->winning_bid)
  @endphp --}}
 {{-- <home-loop-view class="col-md-4"  :home="{{ $home }}"  inline-template> --}}
 <div class="card mx-2 my-2" style="max-width:300px">
@@ -13,7 +13,8 @@
                 <p>Type: {{ $home->type }}</p>
                 <p> Agent: <a href="{{ $home->url }}">{{ $home->user->name }}</a></p>
                 <p> Date Posted: {{ $home->created_date }}</p>
-                <p> Bids: {{ $home->bid_count  }}
+                <p> Bids: {{ $home->bid_count  }}</p>
+                {{-- <p>Highest bid:{{ $home->bid->first()->winning_bid }} </p> --}}
                 @if (Auth::user()->can('update-home', $home))
                 <div class="ml-auto">
                     <a class="btn btn-outline-info" href="{{ route('homes.edit', $home->id) }}">Edit</a>

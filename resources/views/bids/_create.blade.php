@@ -10,7 +10,7 @@
                     @csrf
                     <div class="<div class="form-group">
                       <label for=""></label>
-                      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                      <input type="text" name="bid" id="" class="form-control" placeholder="" aria-describedby="helpId">
                     </div>"
                 </form>    
             </div>

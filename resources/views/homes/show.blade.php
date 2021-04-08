@@ -7,6 +7,7 @@
             </div>
             <div class="col-md-5 col-lg-5 card px-4 py-2">
                 <h1 class="display-4">{{ Str::words($Home->title, 3) }}<h2>
+                <h1 class="float-right">Set Bid</h1>    
                 <i class="far fa-user"></i>
                 <h3>{{ $Home->bid_count . ' ' . Str::plural('Bid', $Home->bid_count) }}</h3>
                 <nav>
